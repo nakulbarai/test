@@ -1,11 +1,7 @@
 ---
-- hosts: [ias] 
-  no_log: True
-  remote_user: tivo
-  become: yes
-  become_method: su
-  tasks:
-    - name: Installed packages.
-      command: /usr/bin/yum --nogpgcheck localinstall -y {{item}}
-      with_items:
-          - /var/tmp/telegraf-1.5.3-1.x86_64.rpm
+- debug:
+    msg: "{{ hostvars[inventory_hostname].ansible_distribution }}"
+- debug:
+    msg: "{{ hostvars[inventory_hostname].ansible_distribution_major_version }}"
+- debug:
+    msg: "{{ hostvars[inventory_hostname].ansible_distribution_version }}"
